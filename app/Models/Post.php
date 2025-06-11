@@ -10,7 +10,7 @@ class Post extends Model
     use HasFactory;
     
     protected $fillable = [
-    'title', 'slug', 'content', 'featured_image', 'status', 'published_at'
+    'title', 'slug', 'content', 'featured_image', 'status', 'published_at', 'category_id',
     ];
 
     //Category Relationship
