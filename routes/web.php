@@ -4,8 +4,10 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\EventController;
+use App\Http\Controllers\PostController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\NewsroomController;
+use App\Http\Livewire\DonationForm;
 use App\Http\Controllers\HomeController;
 
 /*
@@ -37,8 +39,19 @@ Route::middleware('auth')->group(function () {
 Route::get('/', [HomeController::class, 'index']);
 
 
+
+//Home Routes
+Route::get('/', [HomeController::class, 'index']);
+
 //Event Routes
 Route::get('/events', [EventController::class, 'index'])->name('events.index');
+//Blog Routes
+Route::get('/posts', [PostController::class, 'index'])->name('blogs.index');
+
+
+//Payment Routes
+//Donation Route
+Route::get('/donate', DonationForm::class)->name('donate');
 
 //News Routes
 Route::get('/news', [NewsController::class, 'newsletterArchive'])->name('newsroom.newsletters');
