@@ -8,7 +8,7 @@
 </head>
 <body>
     <div class="container">
-        <h1 class="my-4">Check Upcoming posts</h1>
+        <h1 class="my-4">Check Upcoming posts NEW</h1>
 
         <div class="row">
             @foreach ($posts as $post)

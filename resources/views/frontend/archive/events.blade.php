@@ -8,7 +8,7 @@
 </head>
 <body>
     <div class="container">
-        <h1 class="my-4">Check Upcoming Events</h1>
+        <h1 class="my-4">Check Upcoming Events New</h1>
 
         <div class="row">
             @foreach ($events as $event)

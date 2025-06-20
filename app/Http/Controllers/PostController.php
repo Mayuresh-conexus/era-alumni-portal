@@ -13,6 +13,6 @@ class PostController extends Controller
      $posts = Post::all();
 
      // Pass events to the view
-     return view('blogs.index', compact('posts'));
+     return view('frontend.archive.blogs', compact('posts'));
     }
 }

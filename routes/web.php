@@ -44,9 +44,9 @@ Route::get('/', [HomeController::class, 'index']);
 Route::get('/', [HomeController::class, 'index']);
 
 //Event Routes
-Route::get('/events', [EventController::class, 'index'])->name('events.index');
+Route::get('/events', [EventController::class, 'index'])->name('frontend.archive.events');
 //Blog Routes
-Route::get('/posts', [PostController::class, 'index'])->name('blogs.index');
+Route::get('/posts', [PostController::class, 'index'])->name('frontend.archive.blogs');
 
 
 //Payment Routes

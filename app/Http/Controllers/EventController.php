@@ -13,6 +13,6 @@ class EventController extends Controller
         $events = Event::all();
 
         // Pass events to the view
-        return view('events.index', compact('events'));
+        return view('frontend.archive.events', compact('events'));
     }
 }
