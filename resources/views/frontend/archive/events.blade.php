@@ -1,32 +1,97 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Event List</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
-</head>
-<body>
-    <div class="container">
-        <h1 class="my-4">Check Upcoming Events New</h1>
+@include('frontend.header')
 
-        <div class="row">
-            @foreach ($events as $event)
-                <div class="col-md-4 mb-4">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title">{{ $event->title }}</h5>
-                            <p class="card-text"><strong>Date:</strong> {{ $event->date }}</p>
-                            <p class="card-text"><strong>Location:</strong> {{ $event->location }}</p>
-                            <p class="card-text"><strong>Registration Fee:</strong> {{ $event->registration_fee }}</p>
-                            <p class="card-text"><strong>Description:</strong> {{ $event->description }}</p>
+    <link rel="stylesheet" href="assets/css/module-css/page-header.css" />
+    <link rel="stylesheet" href="assets/css/module-css/event.css" />
+
+    <!-- template styles -->
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="stylesheet" href="assets/css/responsive.css" />
+
+        <!--Page Header Start-->
+        <section class="page-header">
+            <div class="page-header__bg" style="background-image: url(assets/images/shapes/page-header-bg-shape.png);">
+            </div>
+            <div class="page-header__shape-4">
+                <img src="assets/images/shapes/page-header-shape-4.png" alt="">
+            </div>
+            <div class="page-header__shape-5">
+                <img src="assets/images/shapes/page-header-shape-5.png" alt="">
+            </div>
+            <div class="page-header__social">
+                <a href="#">Facebook</a>
+                <span>//</span>
+                <a href="#">Instagram</a>
+                <span>//</span>
+                <a href="#">LinkedIn</a>
+                <span>//</span>
+                <a href="#">Twitter</a>
+            </div>
+            <div class="container">
+                <div class="page-header__inner">
+                    <div class="page-header__img">
+                        <img src="assets/images/resources/page-header-img-1.png" alt="">
+                        <div class="page-header__shape-1">
+                            <img src="assets/images/shapes/page-header-shape-1.png" alt="">
+                        </div>
+                        <div class="page-header__shape-2">
+                            <img src="assets/images/shapes/page-header-shape-2.png" alt="">
+                        </div>
+                        <div class="page-header__shape-3">
+                            <img src="assets/images/shapes/page-header-shape-3.png" alt="">
                         </div>
                     </div>
+                    <h2>Events</h2>
+                    <div class="thm-breadcrumb__box">
+                        <ul class="thm-breadcrumb list-unstyled">
+                            <li><a href="index.html">Home</a></li>
+                            <li><span>//</span></li>
+                            <li>Events</li>
+                        </ul>
+                    </div>
                 </div>
-            @endforeach
-        </div>
-    </div>
+            </div>
+        </section>
+        <!--Page Header End-->
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
+        <!--Events Page Start-->
+        <section class="events-page">
+            <div class="container">
+                <div class="row">
+                    <!--Event One Single Start -->
+                        @foreach ($events as $event)
+                    <div class="col-xl-4 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="100ms">
+                        <div class="event-one__single">
+                            <div class="event-one__img">
+                                <img src="assets/images/resources/page-header-img-1.png" alt="">
+                                <!-- <div class="event-one__date">
+                                    <p></p>
+                                </div> -->
+                            </div>
+                            <div class="event-one__content">
+                                <p class="event-one__time"> <span class="icon-clock"></span>{{ $event->date }}</p>
+                                <h4 class="event-one__title"><a href="event-details.html">{{ $event->title }} </a></h4>
+                                <div class="event-one__location">
+                                    <div class="event-one__location-icon">
+                                        <span class="icon-location"></span>
+                                    </div>
+                                    <p class="event-one__loation-text">{{ $event->location }}</p>
+                                    <p>{{ $event->description }}</p>
+                                </div>
+                                <div class="event-one__btn-box">
+                                    <!-- <a href="#" class="thm-btn"><span class="icon-angles-right"></span>{{ $event->description }}</a> -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    @endforeach
+                    <!--Event One Single End -->
+               
+                </div>
+            </div>
+        </section>
+        <!--Events Page End-->
+
+
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script> -->
+
+@include('frontend.footer')
