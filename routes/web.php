@@ -38,6 +38,53 @@ Route::middleware('auth')->group(function () {
 //Home Routes
 Route::get('/', [HomeController::class, 'index']);
 
+//About Routes  
+Route::get('/about', function () {
+    return view('frontend.about');
+});
+
+
+//Contact Routes  
+Route::get('/team', function () {
+    return view('frontend.team');
+});
+
+
+//blog-details Routes  
+Route::get('/blog-details', function () {
+    return view('frontend.blog-details');
+});
+
+
+
+//faq Routes  
+Route::get('/faq', function () {
+    return view('frontend.faq');
+});
+
+
+//Contact Routes  
+Route::get('/contact', function () {
+    return view('frontend.contact');
+});
+
+//Login Routes  
+Route::get('/login', function () {
+    return view('frontend.login');
+});
+
+//Contact Routes  
+Route::get('/sign-up', function () {
+    return view('frontend.sign-up');
+});
+
+
+
+//Contact Routes  
+Route::get('/gallery', function () {
+    return view('frontend.gallery');
+});
+
 
 
 //Home Routes
@@ -52,6 +99,7 @@ Route::get('/posts', [PostController::class, 'index'])->name('frontend.archive.b
 //Payment Routes
 //Donation Route
 Route::get('/donate', DonationForm::class)->name('donate');
+
 
 //News Routes
 Route::get('/news', [NewsController::class, 'newsletterArchive'])->name('newsroom.newsletters');

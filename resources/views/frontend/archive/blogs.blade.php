@@ -1,31 +1,131 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>post List</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
-</head>
-<body>
-    <div class="container">
-        <h1 class="my-4">Check Upcoming posts NEW</h1>
+   @include('frontend.header')
+  <link rel="stylesheet" href="assets/css/module-css/page-header.css" />
 
-        <div class="row">
-            @foreach ($posts as $post)
-                <div class="col-md-4 mb-4">
-                    <div class="card">
-                        <div class="card-body">
-                        <img width="100%" style="margin-bottom: 12px;border-radius:4px;" src="{{ asset('storage/' . $post->featured_image) }}" alt="{{ $post->title }}" />
-                            <h5 class="card-title">{{ $post->title }}</h5>
-                            <p class="card-text"><strong>Date:</strong> {{ $post->created_at }}</p>
-                            <p class="card-text"><strong>Description:</strong> {{ $post->content }}</p>
+<style>
+    .page-header{
+        margin-top:150px;
+    }
+    </style>
+
+
+
+        <!--Page Header Start-->
+        <section class="page-header">
+            <div class="page-header__bg" style="background-image: url(https://weblayout.unicktheme.com/fistudy/main-html/assets/images/shapes/page-header-bg-shape.png);">
+            </div>
+            <div class="page-header__shape-4">
+                <img src="https://weblayout.unicktheme.com/fistudy/main-html/assets/images/shapes/page-header-shape-4.png" alt="">
+            </div>
+            <div class="page-header__shape-5">
+                <img src="https://weblayout.unicktheme.com/fistudy/main-html/assets/images/shapes/page-header-shape-5.png" alt="">
+            </div>
+            <div class="page-header__social">
+                <a href="#">Facebook</a>
+                <span>//</span>
+                <a href="#">Instagram</a>
+                <span>//</span>
+                <a href="#">LinkedIn</a>
+                <span>//</span>
+                <a href="#">Twitter</a>
+            </div>
+            <div class="container">
+                <div class="page-header__inner">
+                    <div class="page-header__img">
+                        <img src="https://weblayout.unicktheme.com/fistudy/main-html/assets/images/resources/page-header-img-1.png" alt="">
+                        <div class="page-header__shape-1">
+                            <img src="https://weblayout.unicktheme.com/fistudy/main-html/assets/images/shapes/page-header-shape-1.png" alt="">
+                        </div>
+                        <div class="page-header__shape-2">
+                            <img src="https://weblayout.unicktheme.com/fistudy/main-html/assets/images/shapes/page-header-shape-2.png" alt="">
+                        </div>
+                        <div class="page-header__shape-3">
+                            <img src="https://weblayout.unicktheme.com/fistudy/main-html/assets/images/shapes/page-header-shape-3.png" alt="">
+                        </div>
+                    </div>
+                    <h2>Our Blogs</h2>
+                    <div class="thm-breadcrumb__box">
+                        <ul class="thm-breadcrumb list-unstyled">
+                            <li><a href="index.html">Home</a></li>
+                            <li><span>//</span></li>
+                            <li>Our Blog</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--Page Header End-->
+
+        <!--Blog Page Start-->
+        <section class="blog-page">
+            <div class="container">
+                <div class="row">
+
+                    @foreach ($posts as $post)
+                    <!--Blog Two Single Start -->
+                    <div class="col-xl-4 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="100ms">
+                        <div class="blog-two__single">
+                            <div class="blog-two__img">
+                                <img src="https://weblayout.unicktheme.com/fistudy/main-html/assets/images/blog/blog-2-4.jpg" alt="">
+                                <div class="blog-two__date">
+                                    <span class="icon-calendar"></span>
+                                    <p>{{ $post->created_at }}</p>
+                                </div>
+                            </div>
+                            <div class="blog-two__content">
+                                <div class="blog-two__meta-box">
+                                    <ul class="blog-two__meta list-unstyled">
+                                        <li>
+                                            <a href="blog-details.html"><span class="icon-tags"></span>Business</a>
+                                        </li>
+                                        <li>
+                                            <a href="blog-details.html"><span class="icon-clock"></span>10 Min Read</a>
+                                        </li>
+                                        <li>
+                                            <a href="blog-details.html"><span
+                                                    class="icon-comments"></span>(Comments)</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <h4 class="blog-two__title"><a href="blog-details.html">{{ $post->title }}</a></h4>
+                                <p class="blog-two__text"> {{ $post->content }}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!--Blog Two Single End -->
+                    @endforeach
+                </div>
+                <!-- <div class="row"> -->
+                    <div class="col-xl-12">
+                        <div class="blog-two__btn-box">
+                            <a href="blog-details.html" class="thm-btn-two">
+                                <span>More Blogs</span>
+                                <i class="icon-angles-right"></i>
+                            </a>
+                        </div>
+                        <div class="blog-list__pagination">
+                            <ul class="pg-pagination list-unstyled">
+                                <li class="prev">
+                                    <a href="#" aria-label="prev"><i class="fas fa-arrow-left"></i></a>
+                                </li>
+                                <li class="count active"><a href="#">01</a></li>
+                                <li class="count"><a href="#">02</a></li>
+                                <li class="count"><a href="#">03</a></li>
+                                <li class="next">
+                                    <a href="#" aria-label="Next"><i class="fas fa-arrow-right"></i></a>
+                                </li>
+                            </ul>
                         </div>
                     </div>
                 </div>
-            @endforeach
-        </div>
-    </div>
+            </div>
+        </section>
+        <!--Blog Page End-->
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
+
+
+
+
+ @include('frontend.footer')
+
+
+

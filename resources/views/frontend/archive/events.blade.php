@@ -6,16 +6,20 @@
     <!-- template styles -->
     <link rel="stylesheet" href="assets/css/style.css" />
     <link rel="stylesheet" href="assets/css/responsive.css" />
-
+<style>
+    .page-header{
+        margin-top:150px;
+    }
+    </style>
         <!--Page Header Start-->
         <section class="page-header">
-            <div class="page-header__bg" style="background-image: url(assets/images/shapes/page-header-bg-shape.png);">
+            <div class="page-header__bg" style="background-image: url(https://weblayout.unicktheme.com/fistudy/main-html/assets/images/shapes/page-header-bg-shape.png);">
             </div>
             <div class="page-header__shape-4">
-                <img src="assets/images/shapes/page-header-shape-4.png" alt="">
+                <img src="https://weblayout.unicktheme.com/fistudy/main-html/assets/images/shapes/page-header-shape-4.png" alt="">
             </div>
             <div class="page-header__shape-5">
-                <img src="assets/images/shapes/page-header-shape-5.png" alt="">
+                <img src="https://weblayout.unicktheme.com/fistudy/main-html/assets/images/shapes/page-header-shape-5.png" alt="">
             </div>
             <div class="page-header__social">
                 <a href="#">Facebook</a>
@@ -29,15 +33,15 @@
             <div class="container">
                 <div class="page-header__inner">
                     <div class="page-header__img">
-                        <img src="assets/images/resources/page-header-img-1.png" alt="">
+                        <img src="https://weblayout.unicktheme.com/fistudy/main-html/assets/images/resources/page-header-img-1.png" alt="">
                         <div class="page-header__shape-1">
-                            <img src="assets/images/shapes/page-header-shape-1.png" alt="">
+                            <img src="https://weblayout.unicktheme.com/fistudy/main-html/assets/images/shapes/page-header-shape-1.png" alt="">
                         </div>
                         <div class="page-header__shape-2">
-                            <img src="assets/images/shapes/page-header-shape-2.png" alt="">
+                            <img src="https://weblayout.unicktheme.com/fistudy/main-html/assets/images/shapes/page-header-shape-2.png" alt="">
                         </div>
                         <div class="page-header__shape-3">
-                            <img src="assets/images/shapes/page-header-shape-3.png" alt="">
+                            <img src="https://weblayout.unicktheme.com/fistudy/main-html/assets/images/shapes/page-header-shape-3.png" alt="">
                         </div>
                     </div>
                     <h2>Events</h2>
@@ -62,7 +66,7 @@
                     <div class="col-xl-4 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="100ms">
                         <div class="event-one__single">
                             <div class="event-one__img">
-                                <img src="assets/images/resources/page-header-img-1.png" alt="">
+                                <img src="https://weblayout.unicktheme.com/fistudy/main-html/assets/images/event/event-1-5.jpg" alt="">
                                 <!-- <div class="event-one__date">
                                     <p></p>
                                 </div> -->
@@ -78,7 +82,7 @@
                                     <p>{{ $event->description }}</p>
                                 </div>
                                 <div class="event-one__btn-box">
-                                    <!-- <a href="#" class="thm-btn"><span class="icon-angles-right"></span>{{ $event->description }}</a> -->
+                                    <a href="#" class="thm-btn"><span class="icon-angles-right"></span>Book Now</a>
                                 </div>
                             </div>
                         </div>
