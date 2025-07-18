@@ -81,9 +81,10 @@
                                     <p class="event-one__loation-text">{{ $event->location }}</p>
                                     <p>{{ $event->description }}</p>
                                 </div>
-                                <div class="event-one__btn-box">
-                                    <a href="#" class="thm-btn"><span class="icon-angles-right"></span>Book Now</a>
-                                </div>
+                                <a href="#" class="d-flex mt-2 gap-2 align-items-center">
+                                        <span>Read More</span>
+                                        <i class="icon-angles-right"></i>
+                                    </a>
                             </div>
                         </div>
                     </div>

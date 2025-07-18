@@ -65,29 +65,21 @@
                     <div class="col-xl-4 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="100ms">
                         <div class="blog-two__single">
                             <div class="blog-two__img">
-                                <img src="https://weblayout.unicktheme.com/fistudy/main-html/assets/images/blog/blog-2-4.jpg" alt="">
+                                <img src="{{ Storage::url($post->featured_image) }}" alt="">
                                 <div class="blog-two__date">
                                     <span class="icon-calendar"></span>
                                     <p>{{ $post->created_at }}</p>
                                 </div>
                             </div>
                             <div class="blog-two__content">
-                                <div class="blog-two__meta-box">
-                                    <ul class="blog-two__meta list-unstyled">
-                                        <li>
-                                            <a href="blog-details.html"><span class="icon-tags"></span>Business</a>
-                                        </li>
-                                        <li>
-                                            <a href="blog-details.html"><span class="icon-clock"></span>10 Min Read</a>
-                                        </li>
-                                        <li>
-                                            <a href="blog-details.html"><span
-                                                    class="icon-comments"></span>(Comments)</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <h4 class="blog-two__title"><a href="blog-details.html">{{ $post->title }}</a></h4>
+                               
+                                <h4 class="blog-two__title"><a href="/blog-details">{{ $post->title }}</a></h4>
                                 <p class="blog-two__text"> {{ $post->content }}</p>
+
+                                <a href="/blog-details" class="d-flex mt-2 gap-2 align-items-center">
+                                        <span>Read More</span>
+                                        <i class="icon-angles-right"></i>
+                                    </a>
                             </div>
                         </div>
                     </div>
@@ -95,7 +87,7 @@
                     @endforeach
                 </div>
                 <!-- <div class="row"> -->
-                    <div class="col-xl-12">
+                    <!-- <div class="col-xl-12">
                         <div class="blog-two__btn-box">
                             <a href="blog-details.html" class="thm-btn-two">
                                 <span>More Blogs</span>
@@ -115,7 +107,7 @@
                                 </li>
                             </ul>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </section>
