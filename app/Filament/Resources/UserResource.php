@@ -10,6 +10,8 @@ use Filament\Resources\Resource;
 use Filament\Resources\Table;
 use Filament\Tables;
 use Filament\Tables\Columns\TextColumn;
+use Filament\Forms;
+use Spatie\Permission\Models\Role as SpatieRole;
 
 class UserResource extends Resource
 {
@@ -22,12 +24,32 @@ class UserResource extends Resource
     {
         return $form
             ->schema([
+                Forms\Components\TextInput::make('name')
+                    ->required(),
+
+                Forms\Components\TextInput::make('email')
+                    ->email()
+                    ->required(),
+
+                Forms\Components\TextInput::make('password')
+                    ->password()
+                    ->dehydrateStateUsing(fn($state) => filled($state) ? bcrypt($state) : null)
+                    ->required(fn(string $context) => $context === 'create')
+                    ->dehydrated(fn($state) => filled($state))
+                    ->label('Password'),
+
                 Select::make('roles')
                     ->label('Roles')
-                    ->relationship('roles', 'name')
+                    ->options(SpatieRole::all()->pluck('name', 'name'))
                     ->multiple()
                     ->preload()
-                    ->searchable(),
+                    ->searchable()
+                    ->default(['user'])
+                    ->afterStateHydrated(function ($component, $state, $record) {
+                        if ($record) {
+                            $component->state($record->roles->pluck('name')->toArray());
+                        }
+                    }),
             ]);
     }
 
@@ -41,9 +63,6 @@ class UserResource extends Resource
                     ->label('Roles')
                     ->sortable()
                     ->searchable(),
-            ])
-            ->filters([
-                //
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
@@ -61,6 +80,4 @@ class UserResource extends Resource
             'edit' => Pages\EditUser::route('/{record}/edit'),
         ];
     }
-
-   
 }

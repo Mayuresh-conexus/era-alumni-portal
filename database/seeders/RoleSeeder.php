@@ -6,19 +6,36 @@ use Illuminate\Database\Seeder;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
 
-
 class RoleSeeder extends Seeder
 {
     public function run()
     {
         // Create roles
-    $admin = Role::firstOrCreate(['name' => 'admin']);
-    $user = Role::firstOrCreate(['name' => 'user']);
+        $admin = Role::firstOrCreate(['name' => 'admin']);
+        $user = Role::firstOrCreate(['name' => 'user']);
 
-    // Create permission
-    $dashboardPermission = Permission::firstOrCreate(['name' => 'view dashboard']);
+        // Example permissions
+        $permissions = [
+            'view dashboard',
+            'view posts',
+            'create posts',
+            'edit posts',
+            'delete posts',
+            'view users',
+            'edit users',
+        ];
 
-    // Assign permission to admin
-    $admin->givePermissionTo($dashboardPermission);
+        foreach ($permissions as $permissionName) {
+            $permission = Permission::firstOrCreate(['name' => $permissionName]);
+        }
+
+        // Assign all permissions to admin
+        $admin->givePermissionTo(Permission::all());
+
+        // Assign limited permissions to user
+        $user->givePermissionTo([
+            'view dashboard',
+            'view posts',
+        ]);
     }
 }

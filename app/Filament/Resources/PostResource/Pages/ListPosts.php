@@ -3,17 +3,14 @@
 namespace App\Filament\Resources\PostResource\Pages;
 
 use App\Filament\Resources\PostResource;
-use Filament\Pages\Actions;
 use Filament\Resources\Pages\ListRecords;
 
 class ListPosts extends ListRecords
 {
     protected static string $resource = PostResource::class;
 
-    protected function getActions(): array
+    public static function canAccess($user): bool
     {
-        return [
-            Actions\CreateAction::make(),
-        ];
+        return $user->can('view posts');
     }
 }
