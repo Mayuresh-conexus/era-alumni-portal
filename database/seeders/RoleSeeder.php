@@ -14,7 +14,7 @@ class RoleSeeder extends Seeder
         $admin = Role::firstOrCreate(['name' => 'admin']);
         $user = Role::firstOrCreate(['name' => 'user']);
 
-        // Example permissions
+        // Example permissions (expand as needed)
         $permissions = [
             'view dashboard',
             'view posts',
@@ -26,14 +26,14 @@ class RoleSeeder extends Seeder
         ];
 
         foreach ($permissions as $permissionName) {
-            $permission = Permission::firstOrCreate(['name' => $permissionName]);
+            Permission::firstOrCreate(['name' => $permissionName]);
         }
 
-        // Assign all permissions to admin
-        $admin->givePermissionTo(Permission::all());
+        // 🔑 Give ALL permissions to admin
+        $admin->syncPermissions(Permission::all());
 
-        // Assign limited permissions to user
-        $user->givePermissionTo([
+        // Limited permissions for user
+        $user->syncPermissions([
             'view dashboard',
             'view posts',
         ]);

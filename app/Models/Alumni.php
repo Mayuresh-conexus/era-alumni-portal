@@ -2,12 +2,12 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Auth\User as Authenticatable; // 👈 change
+use Illuminate\Notifications\Notifiable;
 
-class Alumni extends Model
+class Alumni extends Authenticatable
 {
-    use HasFactory;
+    use Notifiable;
 
     protected $fillable = [
         'name',
@@ -17,5 +17,10 @@ class Alumni extends Model
         'user_type',
         'status',
         'password',
+    ];
+
+    protected $hidden = [
+        'password',
+        'remember_token',
     ];
 }

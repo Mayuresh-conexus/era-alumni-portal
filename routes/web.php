@@ -9,6 +9,7 @@ use App\Http\Controllers\NewsController;
 use App\Http\Controllers\NewsroomController;
 use App\Http\Livewire\DonationForm;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\Alumni\Auth\LoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,9 +26,14 @@ use App\Http\Controllers\HomeController;
 //     return view('welcome');
 // });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+// Alumni-only dashboard
+Route::middleware(['auth:alumni'])->group(function () {
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
+});
+
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -101,8 +107,6 @@ Route::get('/posts', [PostController::class, 'index'])->name('frontend.archive.b
 Route::get('/donate', DonationForm::class)->name('donate');
 
 
-//News Routes
-Route::get('/news', [NewsController::class, 'newsletterArchive'])->name('newsroom.newsletters');
 
 
 require __DIR__.'/auth.php';

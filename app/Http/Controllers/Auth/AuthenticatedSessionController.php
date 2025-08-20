@@ -19,30 +19,39 @@ class AuthenticatedSessionController extends Controller
     {
         return view('auth.login');
     }
+/**
+ * Handle an incoming authentication request.
+ */
+public function store(Request $request): RedirectResponse
+{
+    $request->validate([
+        'email' => 'required|string|email',
+        'password' => 'required|string',
+    ]);
 
-    /**
-     * Handle an incoming authentication request.
-     */
-    public function store(LoginRequest $request): RedirectResponse
-    {
-        $request->authenticate();
-
+    if (Auth::guard('alumni')->attempt(
+        $request->only('email', 'password'),
+        $request->boolean('remember')
+    )) {
         $request->session()->regenerate();
 
-        return redirect()->intended(RouteServiceProvider::HOME);
+        return redirect()->intended(route('dashboard')); // Breeze dashboard
     }
 
+    return back()->withErrors([
+        'email' => 'The provided credentials do not match our records.',
+    ]);
+}
     /**
      * Destroy an authenticated session.
      */
     public function destroy(Request $request): RedirectResponse
-    {
-        Auth::guard('web')->logout();
+{
+    Auth::guard('alumni')->logout(); // logout alumni
 
-        $request->session()->invalidate();
+    $request->session()->invalidate();
+    $request->session()->regenerateToken();
 
-        $request->session()->regenerateToken();
-
-        return redirect('/');
-    }
+    return redirect('/'); // back to homepage or login
+}
 }
